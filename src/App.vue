@@ -18,11 +18,15 @@ function filterByGroups(data) {
  Object.keys(groups).forEach(group =>{
     const students = data.filter(person => person.group == group)
     console.log('students', students)
-    list.value = students;
+    groups[group] = students
+    //list.value = students;
  } )
  return groups
 
 }
+onMounted(async () => {
+    list.value = await filterByGroups(DATA);
+})
 
 
 
@@ -45,11 +49,10 @@ console.log('groups', groups)
         <ul>
             <li v-for="items in list">
                 {{items}}
+                <br>
 
             </li>
         </ul>
-        
-        
 	</div>
 </template>
 
