@@ -19,7 +19,6 @@ function filterByGroups(data) {
     const students = data.filter(person => person.group == group)
     console.log('students', students)
     groups[group] = students
-    //list.value = students;
  } )
  return groups
 
